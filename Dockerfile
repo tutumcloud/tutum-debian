@@ -1,4 +1,4 @@
-FROM debian:squeeze
+FROM debian:latest
 MAINTAINER Fernando Mayo <fernando@tutum.co>
 
 # Install packages
