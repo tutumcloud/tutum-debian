@@ -10,14 +10,11 @@ Usage
 To create the image `tutum/debian` with one tag per Debian release, 
 execute the following commands on the tutum-debian folder:
 
-    git checkout master
     dcoker build -t tutum/debian:latest .
 
-    git checkout squeeze
-	docker build -t tutum/debian:squeeze .
+	docker build -t tutum/debian:squeeze squeeze
 
-    git checkout wheezy
-	docker build -t tutum/debian:wheezy .
+	docker build -t tutum/debian:wheezy wheezy
 
 
 Running tutum/debian
@@ -57,3 +54,11 @@ set the environment variable `ROOT_PASS` to your specific password when running 
 
 	docker run -d -p 2222:22 -e ROOT_PASS="mypass" tutum/debian:wheezy
 
+Adding authorized keys
+----------------------
+
+If you want to use ssh key for login, you can use `AUTHORIZED_KEYS` environment variable. The public keys are separated by `,`:
+
+    docker run -d -p 2222:22 AUTHORIZED_KEYS="pubkey1, pubkey2, pubkey3" tutum/debian:latest
+
+If you put the corresponding private key under `~/.ssh/` where you run ssh command, you will not be asked to input the password.

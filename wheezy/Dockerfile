@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:wheezy
 MAINTAINER Fernando Mayo <fernando@tutum.co>
 
 # Install packages
