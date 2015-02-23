@@ -10,11 +10,11 @@ Usage
 To create the image `tutum/debian` with one tag per Debian release, 
 execute the following commands on the tutum-debian folder:
 
-    dcoker build -t tutum/debian:latest .
-
-	docker build -t tutum/debian:squeeze squeeze
-
-	docker build -t tutum/debian:wheezy wheezy
+    docker build -t tutum/debian:latest .
+    
+    docker build -t tutum/debian:squeeze squeeze
+    
+    docker build -t tutum/debian:wheezy wheezy
 
 
 Running tutum/debian
