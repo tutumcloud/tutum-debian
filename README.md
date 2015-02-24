@@ -62,3 +62,7 @@ If you want to use ssh key for login, you can use `AUTHORIZED_KEYS` environment 
     docker run -d -p 2222:22 AUTHORIZED_KEYS="pubkey1, pubkey2, pubkey3" tutum/debian:latest
 
 If you put the corresponding private key under `~/.ssh/` where you run ssh command, you will not be asked to input the password.
+
+If you want to run a container with your local public key from `~/.ssh/id_rsa.pub`, you can use this command:
+
+    docker run -d -p 2222:22 -e AUTHORIZED_KEYS="$(cat ~/.ssh/id_rsa.pub)" tutum/debian:latest
