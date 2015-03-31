@@ -16,6 +16,8 @@ execute the following commands on the tutum-debian folder:
     
     docker build -t tutum/debian:wheezy wheezy
 
+    docker build -t tutum/debian:jessie jessie
+
 
 Running tutum/debian
 --------------------
