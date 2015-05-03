@@ -11,12 +11,9 @@ To create the image `tutum/debian` with one tag per Debian release,
 execute the following commands on the tutum-debian folder:
 
     docker build -t tutum/debian:latest .
-    
-    docker build -t tutum/debian:squeeze squeeze
-    
-    docker build -t tutum/debian:wheezy wheezy
-
-    docker build -t tutum/debian:jessie jessie
+    docker build -t tutum/debian:squeeze squeeze/
+    docker build -t tutum/debian:wheezy wheezy/
+    docker build -t tutum/debian:jessie jessie/
 
 
 Running tutum/debian
@@ -56,15 +53,10 @@ set the environment variable `ROOT_PASS` to your specific password when running 
 
 	docker run -d -p 2222:22 -e ROOT_PASS="mypass" tutum/debian:wheezy
 
-Adding authorized keys
-----------------------
 
-If you want to use ssh key for login, you can use `AUTHORIZED_KEYS` environment variable. The public keys are separated by `,`:
+Adding SSH authorized keys
+--------------------------
 
-    docker run -d -p 2222:22 AUTHORIZED_KEYS="pubkey1, pubkey2, pubkey3" tutum/debian:latest
+If you want to use your SSH key to login, you can use the `AUTHORIZED_KEYS` environment variable. You can add more than one public key separating them by `,`:
 
-If you put the corresponding private key under `~/.ssh/` where you run ssh command, you will not be asked to input the password.
-
-If you want to run a container with your local public key from `~/.ssh/id_rsa.pub`, you can use this command:
-
-    docker run -d -p 2222:22 -e AUTHORIZED_KEYS="$(cat ~/.ssh/id_rsa.pub)" tutum/debian:latest
+    docker run -d -p 2222:22 -e AUTHORIZED_KEYS="`cat ~/.ssh/id_rsa.pub`" tutum/debian:latest
