@@ -1,13 +1,15 @@
 tutum-debian
 ============
 
+[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
+
 Simple Debian docker images with SSH access
 
 
 Usage
 -----
 
-To create the image `tutum/debian` with one tag per Debian release, 
+To create the image `tutum/debian` with one tag per Debian release,
 execute the following commands on the tutum-debian folder:
 
     docker build -t tutum/debian:latest .
@@ -19,7 +21,7 @@ execute the following commands on the tutum-debian folder:
 Running tutum/debian
 --------------------
 
-To run a container from the image you created earlier with the `wheezy` tag 
+To run a container from the image you created earlier with the `wheezy` tag
 binding it to port 2222 in all interfaces, execute:
 
 	docker run -d -p 2222:22 tutum/debian:wheezy
